@@ -42,7 +42,6 @@ void app_main(void) {
         .ap = {
             .ssid = AP_SSID,
             .ssid_len = strlen(AP_SSID),
-            .password = AP_PASSWORD,
             .channel = 0,
             .authmode = WIFI_AUTH_OPEN ,
             .ssid_hidden = 0 ,
@@ -51,9 +50,6 @@ void app_main(void) {
         },
     };
 
-    if (strlen(AP_PASSWORD) == 0) {
-        wifi_config.ap.authmode = WIFI_AUTH_OPEN;
-    }
 
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_AP));
     ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_AP, &wifi_config));
